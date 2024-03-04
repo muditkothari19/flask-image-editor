@@ -3,6 +3,19 @@ from flask import Flask, render_template, request, flash
 from werkzeug.utils import secure_filename
 import cv2
 import os
+import subprocess
+
+def install_library(library_name):
+    subprocess.call(['pip', 'install', library_name])
+
+# Install Flask's flash library
+install_library('flask')
+
+# Now you can import and use the flash library in your Streamlit app
+from flask import flash
+
+# Rest of your Streamlit app code here
+
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'webp', 'jpg', 'jpeg', 'gif'}
